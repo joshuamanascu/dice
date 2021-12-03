@@ -2,7 +2,6 @@
 #include <string.h>
 #include "parser.h"
 
-//char **TERMS;
 
 void dynamicAlloc(int);
 	
@@ -24,6 +23,11 @@ int parse(char *input) {
 	}
 	
 	return count;
+}
+
+//Parses the term and calls the rolling function appropriately.
+int term_parse(char *term) {
+	
 }
 
 void dynamicAlloc(int slots) {

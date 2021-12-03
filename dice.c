@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 	INPUT = (char *)malloc(strlen(argv[1]) + 1);
 	strcpy(INPUT, argv[1]);
 	
-	int size = parse(INPUT); // Number of terms parsed
+	int size = parse(INPUT); // Number of terms parsed"
 }
 
 void errors(int code) {
