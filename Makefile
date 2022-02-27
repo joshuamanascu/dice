@@ -6,7 +6,6 @@ OBJS = dice.o parser.o roll.o
 HEADERS = parser.h roll.h
 
 
-#EXECUTABLE SHOULD BE FIRST DUH
 dice: $(OBJS)
 	$(CC) $(CFLAGS) -o dice $(OBJS)
 
