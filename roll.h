@@ -1,3 +1,3 @@
-int roll(int num, int sides);
+int roll(int mult, int num, int sides);
 
 
