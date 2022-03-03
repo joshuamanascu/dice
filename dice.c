@@ -6,7 +6,6 @@
 #include "parser.h"
 #include "roll.h"
 
-int TOTAL; // Dice value
 char *INPUT; //Will hold a copy of the input
 
 void errors(int);
@@ -18,8 +17,26 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 	
-	INPUT = (char *)malloc(strlen(argv[1]) + 1);
-	strcpy(INPUT, argv[1]);
+	if (argc == 2) //If the entire sequence is submitted as one input
+	{
+		INPUT = (char *)malloc(strlen(argv[1]) + 1);
+		strcpy(INPUT, argv[1]);
+	}
+	else {
+		int alloc = 0;
+		
+		for (int i = 1; i < argc; i++) { //Calculate space needed for INPUT
+			alloc += strlen(argv[i]) + 1;
+		}
+		
+		INPUT = (char *)malloc(alloc);
+		//INPUT[0] = '\0';
+		
+		for (int i = 1; i < argc; i++) {
+			strcat(INPUT, argv[i]);
+			strcat(INPUT, " ");
+		}
+	}
 	
 	int size = parse(INPUT); // Number of terms parsed
 	
@@ -70,7 +87,9 @@ int main(int argc, char *argv[]) {
 	
 	printf("%d\n", total);
 	
-	return total;
+	free(INPUT);
+	
+	return 0; // Success
 }
 
 void errors(int code) {
