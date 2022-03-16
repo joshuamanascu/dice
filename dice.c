@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
 	
 	int mult, num, sides;
 	
-	srand(time(0));
+	srand(time(0) + clock());
 	
 	//while (0 == 0) {}
 	
